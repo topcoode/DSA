@@ -6,5 +6,5 @@ import (
 
 func main() {
 	//trees
-	Trees.Binary_tree()
+	Trees.Binarytree_Node()
 }

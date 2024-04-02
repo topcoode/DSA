@@ -1,0 +1,12 @@
+> A struct that represents a node in the binary tree. 
+> Each node should have an integer value and pointers to its left and right child nodes.
+
+
+> Inserting Nodes: When inserting a node into a binary tree, ensure that all nodes to the left have smaller values, 
+> while all nodes to the right have larger values. 
+> Implement an insert function that adds nodes accordingly
+
+
+> Tree Traversal: There are three main types of tree traversals - preorder, inorder, and postorder. 
+> These traversals involve visiting nodes in a specific order. 
+> Implement functions for each type of traversal to navigate through the binary tree
