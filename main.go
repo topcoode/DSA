@@ -2,9 +2,15 @@ package main
 
 import (
 	"dsa/Trees"
+	//"dsa/Trees/Leaf"
+	//"dsa/Trees/Transversal"
+	//"dsa/BinarySearch"
 )
 
 func main() {
-	//trees
+	// Transversal.Preorder_data()
+	// Transversal.PostOrderTransversal()
+	// Transversal.Inorder_Transversal()
+	//BinarySearch.Binary_Tree()
 	Trees.Binarytree_Node()
 }

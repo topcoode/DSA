@@ -26,10 +26,11 @@ func (t *BinaryTree) insert(data int64) *BinaryTree {
 }
 
 func (n *BinaryNode) insert(data int64) {
+	fmt.Println("n.data----->", n.data)
 	if n == nil {
 		return
 	} else if data <= n.data {
-		if n.left == nil {
+		if n.left == nil { // checking left side of the root node after that only inserting the value into the left side node.
 			n.left = &BinaryNode{data: data, left: nil, right: nil}
 		} else {
 			n.left.insert(data)
@@ -38,6 +39,7 @@ func (n *BinaryNode) insert(data int64) {
 		if n.right == nil {
 			n.right = &BinaryNode{data: data, left: nil, right: nil}
 		} else {
+			// If the left child exists, the insert method is recursively called on the left child.
 			n.right.insert(data)
 		}
 	}
@@ -71,4 +73,22 @@ func Binarytree_Node() {
 		insert(5).
 		insert(-10)
 	print(os.Stdout, tree.root, 0, 'M')
+	data := Count_for_Binary(tree.root)
+	fmt.Println("count:", data)
+}
+
+/*
+tree can be traversed in three ways
+In-order traversal - left|root|right
+Preorder traversal - root|left|right
+Post-order ”      - left|right|root
+*/
+func Count_for_Binary(data *BinaryNode) int {
+	if data == nil {
+		return 0
+	}
+	if data.left == nil && data.right == nil {
+		return 1
+	}
+	return Count_for_Binary(data.left) + Count_for_Binary(data.right)
 }
