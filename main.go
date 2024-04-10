@@ -1,10 +1,11 @@
 package main
 
 import (
-	"dsa/Trees"
+	//"dsa/Trees"
 	//"dsa/Trees/Leaf"
 	//"dsa/Trees/Transversal"
 	//"dsa/BinarySearch"
+	"dsa/Methods"
 )
 
 func main() {
@@ -12,5 +13,6 @@ func main() {
 	// Transversal.PostOrderTransversal()
 	// Transversal.Inorder_Transversal()
 	//BinarySearch.Binary_Tree()
-	Trees.Binarytree_Node()
+	//Trees.Binarytree_Node()
+	Methods.Methods_Main()
 }

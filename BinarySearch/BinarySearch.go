@@ -11,35 +11,49 @@ type Rootdata struct {
 	Rootdata *Treestruct
 }
 
-func (n *Rootdata) Binary_Root_Creation(data []int, value int) {
-	var datatree Treestruct
-
-	for _, data := range data {
-		if n.Rootdata == nil {
-			n.Rootdata = &Treestruct{
-				Value: data,
-				Left:  nil,
-				Right: nil,
-			}
+func (t *Rootdata) insertdata(data []int) *Rootdata {
+	for _, value := range data {
+		if t.Rootdata == nil {
+			t.Rootdata = &Treestruct{Value: value, Left: nil, Right: nil}
 		} else {
-			datatree.Nodes_creation(data)
+			t.Rootdata.insertdata(value)
+		}
+
+	}
+	return t
+}
+func (n *Treestruct) insertdata(value int) *Treestruct {
+	if n == nil {
+		return nil
+	} else if value <= n.Value {
+		if n.Left == nil { // checking left side of the root node after that only inserting the value into the left side node.
+			n.Left = &Treestruct{Value: value, Left: nil, Right: nil}
+		} else {
+			n.Left.insertdata(value)
+		}
+	} else {
+		if n.Right == nil {
+			n.Right = &Treestruct{Value: value, Left: nil, Right: nil}
+		} else {
+			// If the left child exists, the insert method is recursively called on the left child.
+			n.Right.insertdata(value)
 		}
 	}
-
+	return n
 }
-func (n *Treestruct) Nodes_creation(value int) {
-	if n == nil {
-		return
-	} else if value <= n.Value {
-		fmt.Println()
-	}
+func (n *Rootdata) Searching_element(element int) {
+	var tree Treestruct
+
+	fmt.Println("searching data--------->", tree)
 
 }
 func Binary_Tree() {
 	var Treestructdata Rootdata
 	array := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
-
 	element := 6
+	Treestructdata.Searching_element(element)
+	Treestructdata.insertdata(array)
+	fmt.Println("Treestructdata--->", Treestructdata.Rootdata)
+	fmt.Println("Treestructdata--->", Treestructdata.Rootdata.Right.Right.Value)
 
-	Treestructdata.Binary_Root_Creation(array, element)
 }
